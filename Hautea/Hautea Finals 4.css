@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: silver;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 75%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: royalblue;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.wrapper {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px; 
+  background: black;
+  color: white;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+#nav {
+  margin-top: 10px;
+}
+
+#nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px; 
+  transition: color 0.4s ease;
+}
+
+#nav a:hover {
+  color: rgb(0, 229, 255);
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+#My_Grandmother_in_heaven .Athena_and_Lola {
+  width: 380px;
+  height: 380px;
+  border-radius: 25%;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-left: 50px;
+}
+
+#My_Grandmother_in_heaven .Athena_and_Lola_2 {
+  width: 380px;
+  height: 380px;
+  border-radius: 25%;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-right: 75px;
+}
+
+#My_Grandmother_in_heaven h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+footer {
+  background-color: #1e130c;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px; 
+}
