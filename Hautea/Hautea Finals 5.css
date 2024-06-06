@@ -38,22 +38,6 @@ header h1 {
   font-size: 2em;
 }
 
-#nav {
-  margin-top: 10px;
-}
-
-#nav a {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px; 
-  transition: color 0.4s ease;
-}
-
-#nav a:hover {
-  color: rgb(0, 229, 255);
-}
-
 main {
   padding: 20px;
   text-align: center;
