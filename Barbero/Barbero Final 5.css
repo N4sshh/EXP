@@ -39,25 +39,6 @@ header h1 {
   color:pink;
 }
 
-#nav {
-  margin-top: 10px;
-}
-
-#BLΛƆKPIИK_Next_Page {
-  margin: 0 15px;
-}
-
-.Next_Page_BLΛƆKPIИK {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.4s ease;
-}
-
-.Next_Page_BLΛƆKPIИK:hover {
-  color: pink;
-}
-
 main {
   padding: 20px;
   text-align: center;
