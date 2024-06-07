@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #ef8e38;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 70%;
+  margin: 1% auto;
+  padding: 10px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 1%;
+  overflow: hidden;
+}
+
+.content-wrap {
+  background: -webkit-linear-gradient(to right, #ef8e38, #2a2727);
+  background: linear-gradient(to right, #ef8e38, #2a2727); 
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: -webkit-linear-gradient(to right, #2a2727, #ef8e38);
+  background: linear-gradient(to right, #2a2727, #ef8e38); 
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em; 
+  color: #ffffff;
+}
+
+#Head {
+  margin-top: 10px;
+}
+
+.Tresha_Next_Page {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.Tresha_Next_Page:hover {
+  color: #ef8e38;
+}
+
+#main-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 35%;
+  height: 350px;
+  border-radius: 10%;
+  margin: 0;
+}
+
+#main-content h1 {
+  font-size: 25px;
+  text-align: center;
+  color: #ffffff;
+}
+
+footer {
+  background: -webkit-linear-gradient(to right, #ef8e38, #2a2727);
+  background: linear-gradient(to right, #ef8e38, #2a2727); 
+  text-align: center;
+  padding: 1px;
+  margin-top: 10px;
+  border-radius: 0 0 10px 10px; 
+}
+footer h2 {
+  color: #ffffff;
+}
