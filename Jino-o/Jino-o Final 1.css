@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F6F2AF;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 55%;
+  margin: 1% auto;
+  padding: 10px;
+  background-color: #F6F2AF;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.Pon_Pon {
+  background-color: #F6F2AF;
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #F6F2AF;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0; 
+}
+
+header h1 {
+  margin: 0px;
+  font-size: 2em; 
+  color:  #7B3933;
+}
+
+#nav {
+  margin-top: 10px;
+}
+
+.Rianna_NP {
+  color: #7B3933;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.Rianna_NP:hover {
+  color: royalblue;
+}
+
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+#Rianna img {
+  width: 300px;
+  height: 300px;
+  border-radius: 25%;
+  margin: 20px;
+}
+
+#Rianna h1 {
+  font-size: 25px;
+  text-align: center;
+  color: #7B3933;
+}
+
+footer {
+  background-color: #F6F2AF;
+  text-align: center;
+  padding: 1px;
+  margin-top: 10px;
+  border-radius: 0 0 10px 10px; 
+}
+
+footer h2{
+  color: #7B3933;
+}
