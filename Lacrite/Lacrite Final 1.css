@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgba(176, 165, 165, 0.363);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 30%;
+  margin: 1% auto;
+  padding: 10px;
+  background-color: #203A43;
+  box-sizing: border-box;
+  border-radius: 15%;
+  overflow: hidden;
+}
+
+.Jecevill {
+  background: -webkit-linear-gradient(to right, #ee9ca7, #ffdde1);
+  background: linear-gradient(to right, #ee9ca7, #ffdde1); 
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: -webkit-linear-gradient(to right, #ee9ca7, #ffdde1);
+  background: linear-gradient(to right, #ffdde1, #ee9ca7); 
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0; 
+}
+
+header h1 {
+  margin: 0px;
+  font-size: 2em; 
+  color: black;
+}
+
+#Head {
+  margin-top: 10px;
+}
+
+.Jecevill_NP {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.Jecevill_NP:hover {
+  color: white;
+}
+
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.Jecevill_1 {
+  width: 300px;
+  height: 300px;
+  border-radius: 30%;
+  margin: 0px;
+}
+
+#Jecevill_Main h1 {
+  font-size: 25px;
+  text-align: center;
+}
+
+footer {
+  background: -webkit-linear-gradient(to right, #ee9ca7, #ffdde1);
+  background: linear-gradient(to right, #ffdde1, #ee9ca7); 
+  text-align: center;
+  padding: 1px;
+  color: black;
+  margin-top: 10px;
+  border-radius: 0 0 10px 10px; 
+}
