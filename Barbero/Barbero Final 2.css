@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 70%;
+  margin: 2% auto;
+  padding: 10px;
+  background-color: pink;
+  color: black;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.BLΛƆKPIИK_Wrapper {
+  background-color: pink;
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  color: white;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em; 
+  color:pink;
+}
+
+#nav {
+  margin-top: 10px;
+}
+
+#BLΛƆKPIИK_Next_Page {
+  margin: 0 15px;
+}
+
+.Next_Page_BLΛƆKPIИK {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.Next_Page_BLΛƆKPIИK:hover {
+  color: pink;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+#All_About_Jennie img.Ruby_Jane {
+  width: 400px;
+  height: 400px;
+  border-radius: 25%;
+  margin-bottom: 10px;
+  margin-top: -30px;
+  margin-left: 50px;
+}
+
+#All_About_Jennie h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  padding: 1px;
+  color: pink;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px; 
+}
