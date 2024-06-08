@@ -2,17 +2,18 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #E7CCD2 ;
+  background: #E7CCD2;
   overflow-x: hidden;
 }
 
 .container {
-  width: 50%;
+  max-width: 100%;
+  width: 70%; 
   margin: 1% auto;
   padding: 10px;
   background-color: #ffffff;
   box-sizing: border-box;
-  border-radius: 15%;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -20,20 +21,20 @@ body {
   background: #FBEDED;
   padding: 20px;
   color: black;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 header {
   text-align: center;
   padding: 20px;
-  background-color: #CD5E77; 
+  background-color: #CD5E77;
   margin-bottom: 20px;
-  border-radius: 10px 10px 0 0; 
+  border-radius: 10px 10px 0 0;
 }
 
 header h1 {
-  margin: 0px;
-  font-size: 2em; 
+  margin: 0;
+  font-size: 2em;
   color: black;
 }
 
@@ -54,8 +55,8 @@ main {
 }
 
 .profile-video {
-  width: 100%; 
-  height: auto; 
+  width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
@@ -65,10 +66,19 @@ main h1 {
 }
 
 footer {
-  background-color: #CD5E77 ;  
+  background-color: #CD5E77;
   text-align: center;
-  padding: 1px;
+  padding: 10px;
   color: black;
   margin-top: 10px;
-  border-radius: 0 0 10px 10px; 
+  border-radius: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+      width: 90%; 
+  }
+  .video-item {
+      width: calc(50% - 20px); 
+  }
 }
