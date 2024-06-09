@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: pink;
+  overflow-x: hidden;
+}
+
+.container_Page_5 {
+  max-width: 50%;
+  margin: 2% auto;
+  padding: 10px;
+  background-color: black;
+  box-sizing: border-box;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.Page_5_Wrapper {
+  background-color: pink;
+  padding: 20px;
+  color: black;
+  border-radius: 10px; 
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  margin-bottom: 20px;
+  border-radius: 10px 10px 0 0; 
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: black;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.Jhoanne_IMG {
+  width: 400px;
+  height: 400px;
+  border-radius: 25%;
+  margin-bottom: 10px;
+  margin-top: -30px;
+}
+
+main h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px; 
+}
+
+#navigation_5 {
+  margin-top: 10px;
+}
+
+#Next_Page_5 {
+  margin-top: 10px;
+}
+
+.Next_Page_5 {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.4s ease;
+}
+
+.Next_Page_5:hover {
+  color: royalblue;
+}
+
+footer p {
+  margin: 0;
+}
