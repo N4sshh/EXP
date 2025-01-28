@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Giants: Menu & Order</title>
+  <link rel="stylesheet" href="menu and order.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Menu Comparison & Order</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="Pizza.html">Home</a></li>
+        <li><a href="about.html">About the Chains</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Menu Comparison Section -->
+    <section>
+      <h2>Compare Pizza Menus</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Pizza Name</th>
+            <th>Chain</th>
+            <th>Price</th>
+            <th>Ingredients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Extravaganza</td>
+            <td>Domino's</td>
+            <td>$15.99</td>
+            <td>Pepperoni, Sausage, Mushrooms, Onions</td>
+          </tr>
+          <tr>
+            <td>Stuffed Crust</td>
+            <td>Pizza Hut</td>
+            <td>$14.99</td>
+            <td>Cheese, Crust, Sauce</td>
+          </tr>
+          <tr>
+            <td>Garlic Butter Pizza</td>
+            <td>Papa John's</td>
+            <td>$16.99</td>
+            <td>Cheese, Garlic Butter, Fresh Toppings</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Order Simulation Section -->
+    <section>
+      <h2>Place Your Order</h2>
+      <form method="POST">
+        <label for="chain">Select Pizza Chain:</label>
+        <select id="chain" name="chain" required>
+          <option value="dominos">Domino's</option>
+          <option value="pizzahut">Pizza Hut</option>
+          <option value="papajohns">Papa John's</option>
+        </select>
+
+        <label for="pizza">Select Pizza:</label>
+        <select id="pizza" name="pizza" required>
+          <option value="extravaganza">Extravaganza</option>
+          <option value="stuffedcrust">Stuffed Crust</option>
+          <option value="garlicbutter">Garlic Butter Pizza</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <!-- User Information -->
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="location">Delivery Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter your address" required>
+
+        <button type="submit">Place Order</button>
+      </form>
+
+      <!-- Display Thank-You Message after Form Submission -->
+      <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+        <div class="thank-you-message">
+          <p>Thank you for your order! We will send a confirmation to your email and update you about delivery.</p>
+        </div>
+      <?php endif; ?>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Pizza Giants. All rights reserved.</p>
+  </footer>
+</body>
+</html>

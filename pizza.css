@@ -1,0 +1,172 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    line-height: 1.6;
+    background-color: #ffe8b5; /* Light pizza crust background */
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #d35400; /* Pizza sauce red */
+    text-shadow: 2px 2px 0px #f39c12; /* Cheese yellow shadow */
+}
+
+header p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #d35400; /* Pizza sauce red */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #f39c12; /* Cheese yellow */
+}
+
+/* Main Section */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Pizza Item Styles */
+.pizza-item {
+    position: relative;
+    width: 250px;
+    border: 3px solid #d35400; /* Pizza sauce red border */
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff8dc; /* Light cheese background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pizza-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pizza-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.details {
+    padding: 15px;
+    display: none; /* Initially hidden */
+    text-align: left;
+}
+
+.pizza-item:hover .details {
+    display: block; /* Show on hover */
+}
+
+/* Table Styles (Menu Comparison) */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #d35400; /* Pizza sauce red */
+    color: white;
+}
+
+td {
+    background-color: #fffaf0; /* Light cheese background */
+}
+
+/* Form Styles (Order Section) */
+form {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form select, form input, form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #d35400; /* Pizza sauce red */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e63e00; /* Darker red */
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+/* Pizza-Themed Extras */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('pizza-pattern.png') repeat; /* Add a pizza pattern background */
+    opacity: 0.1;
+    z-index: -1;
+}
