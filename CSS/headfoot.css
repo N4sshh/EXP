@@ -1,0 +1,60 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #d35400; /* Pizza sauce red */
+    color: #fff8dc; /* Light cheese */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto;
+    text-align: center;
+    flex-grow: 1;
+    text-shadow: 2px 2px 0px #f39c12; /* Cheese yellow shadow */
+}
+
+header .artists-btn, 
+header .home-btn {
+    background-color: #fff8dc; /* Light cheese */
+    color: #d35400; /* Pizza sauce red */
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+header .artists-btn:hover, 
+header .home-btn:hover {
+    background-color: #d35400;
+    color: #fff8dc;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #fff8dc;
+    background-color: #d35400;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    text-shadow: 1px 1px 0px #f39c12;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
