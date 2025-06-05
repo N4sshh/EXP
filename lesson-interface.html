@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeStarter - Lesson Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #1e40af, #3730a3);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(30, 58, 138, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            background: #fbbf24;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #93c5fd;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .welcome-section {
+            margin-bottom: 2rem;
+        }
+
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.125rem;
+            color: #93c5fd;
+        }
+
+        /* Progress Cards */
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-card {
+            background: rgba(30, 64, 175, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .progress-card h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .progress-label {
+            color: #93c5fd;
+            font-size: 0.875rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Lesson Cards */
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lesson-card {
+            background: rgba(30, 64, 175, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            background: rgba(30, 64, 175, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .lesson-card-content {
+            padding: 1.5rem;
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: white;
+        }
+
+        .lesson-description {
+            color: #93c5fd;
+            font-size: 0.875rem;
+        }
+
+        .lesson-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #93c5fd;
+            font-size: 0.875rem;
+        }
+
+        .difficulty-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .difficulty-beginner {
+            background: #10b981;
+        }
+
+        .difficulty-intermediate {
+            background: #f59e0b;
+        }
+
+        .difficulty-advanced {
+            background: #ef4444;
+        }
+
+        .lesson-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lesson-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-start {
+            background: #2563eb;
+        }
+
+        .btn-start:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-review {
+            background: #059669;
+        }
+
+        .btn-review:hover {
+            background: #047857;
+        }
+
+        .stars {
+            display: flex;
+            gap: 0.125rem;
+        }
+
+        .star {
+            width: 0.75rem;
+            height: 0.75rem;
+            fill: #fbbf24;
+            color: #fbbf24;
+        }
+
+        .progress-bar {
+            background: rgba(30, 58, 138, 0.5);
+            height: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #10b981, #059669);
+            transition: width 0.5s ease;
+        }
+
+        .completed-icon {
+            color: #10b981;
+            margin-left: 0.5rem;
+        }
+
+        /* Icons (simple text replacements) */
+        .icon {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">💻</div>
+                    <div class="logo-text">CodeStarter</div>
+                </div>
+                <div class="user-info">
+                    <span>John Doe</span>
+                    <span>👤</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome back, John! 👋</h1>
+                <p class="welcome-subtitle">Continue your web development journey with these coding workshops.</p>
+            </div>
+
+            <!-- Progress Overview -->
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <h3>Progress</h3>
+                    <div class="progress-number">1/4</div>
+                    <div class="progress-label">Lessons completed</div>
+                </div>
+                <div class="progress-card">
+                    <h3>Current Streak</h3>
+                    <div class="progress-number">🔥 1</div>
+                    <div class="progress-label">Days in a row</div>
+                </div>
+                <div class="progress-card">
+                    <h3>Next Up</h3>
+                    <div class="progress-number" style="font-size: 1.125rem; font-weight: 600;">Week 2</div>
+                    <div class="progress-label">Continue learning</div>
+                </div>
+            </div>
+
+            <!-- HTML Fundamentals Section -->
+            <h2 class="section-title">HTML Fundamentals</h2>
+            <div class="lessons-grid">
+                <!-- Lesson 1 - Completed -->
+                <div class="lesson-card" onclick="openLesson(1)">
+                    <div class="lesson-card-content">
+                        <div class="lesson-header">
+                            <div>
+                                <h3 class="lesson-title">Week 1: Introduction to Web Development ✅</h3>
+                                <p class="lesson-description">Learn the basics of web development, frontend vs backend, and essential tools.</p>
+                            </div>
+                        </div>
+                        <div class="lesson-meta">
+                            <div class="lesson-duration">
+                                <span>🕒</span>
+                                <span>45 mins</span>
+                            </div>
+                            <div class="difficulty-badge difficulty-beginner">Beginner</div>
+                        </div>
+                        <div class="lesson-actions">
+                            <a href="#" class="lesson-button btn-review">
+                                <span>✅</span>
+                                <span>Review</span>
+                            </a>
+                            <div class="stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <!-- Lesson 2 - Not Started -->
+                <div class="lesson-card" onclick="openLesson(2)">
+                    <div class="lesson-card-content">
+                        <div class="lesson-header">
+                            <div>
+                                <h3 class="lesson-title">Week 2: HTML Basics</h3>
+                                <p class="lesson-description">Create your first HTML page with basic elements and structure.</p>
+                            </div>
+                        </div>
+                        <div class="lesson-meta">
+                            <div class="lesson-duration">
+                                <span>🕒</span>
+                                <span>60 mins</span>
+                            </div>
+                            <div class="difficulty-badge difficulty-beginner">Beginner</div>
+                        </div>
+                        <div class="lesson-actions">
+                            <a href="#" class="lesson-button btn-start">
+                                <span>▶️</span>
+                                <span>Start</span>
+                            </a>
+                            <div class="stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS Styling Section -->
+            <h2 class="section-title">CSS Styling</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card" onclick="openLesson(3)">
+                    <div class="lesson-card-content">
+                        <div class="lesson-header">
+                            <div>
+                                <h3 class="lesson-title">Week 3: CSS Styling</h3>
+                                <p class="lesson-description">Learn how to style your HTML with CSS and make beautiful web pages.</p>
+                            </div>
+                        </div>
+                        <div class="lesson-meta">
+                            <div class="lesson-duration">
+                                <span>🕒</span>
+                                <span>75 mins</span>
+                            </div>
+                            <div class="difficulty-badge difficulty-beginner">Beginner</div>
+                        </div>
+                        <div class="lesson-actions">
+                            <a href="#" class="lesson-button btn-start">
+                                <span>▶️</span>
+                                <span>Start</span>
+                            </a>
+                            <div class="stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript Section -->
+            <h2 class="section-title">JavaScript</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card" onclick="openLesson(4)">
+                    <div class="lesson-card-content">
+                        <div class="lesson-header">
+                            <div>
+                                <h3 class="lesson-title">Week 4: JavaScript Basics</h3>
+                                <p class="lesson-description">Add interactivity to your websites with JavaScript programming.</p>
+                            </div>
+                        </div>
+                        <div class="lesson-meta">
+                            <div class="lesson-duration">
+                                <span>🕒</span>
+                                <span>90 mins</span>
+                            </div>
+                            <div class="difficulty-badge difficulty-intermediate">Intermediate</div>
+                        </div>
+                        <div class="lesson-actions">
+                            <a href="#" class="lesson-button btn-start">
+                                <span>▶️</span>
+                                <span>Start</span>
+                            </a>
+                            <div class="stars">
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                                <span class="star">⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function openLesson(lessonId) {
+            // Simple alert for demo - you can replace this with actual navigation
+            alert(`Opening lesson ${lessonId}!`);
+            
+            // In a real implementation, you might redirect to a lesson detail page:
+            // window.location.href = `lesson.html?id=${lessonId}`;
+        }
+
+        // Simple interaction for mark complete button
+        function markComplete(lessonId) {
+            alert(`Lesson ${lessonId} marked as complete!`);
+            // Here you would typically update the lesson status
+        }
+    </script>
+</body>
+</html>
