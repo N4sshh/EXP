@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeStarter - AI Chatbot</title>
+    <link rel="stylesheet" href="chatbot-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">💻</div>
+                    <div class="logo-text">CodeStarter</div>
+                </div>
+                <div class="breadcrumb">
+                    <a href="lesson-interface.html" class="back-link">← Back to Lessons</a>
+                    <span class="separator">/</span>
+                    <span class="current-page">AI Tutor</span>
+                </div>
+                <div class="user-info">
+                    <span>John Doe</span>
+                    <span>👤</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <h1 class="chat-title">AI Coding Tutor 🤖</h1>
+                <p class="chat-subtitle">Ask me anything about web development, HTML, CSS, JavaScript, and more!</p>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="chat-container">
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Welcome Message -->
+                    <div class="message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p>Hello! I'm your AI coding tutor. I'm here to help you learn web development. You can ask me questions about:</p>
+                                <ul>
+                                    <li>HTML structure and elements</li>
+                                    <li>CSS styling and layouts</li>
+                                    <li>JavaScript programming</li>
+                                    <li>Best practices and debugging</li>
+                                    <li>Project ideas and guidance</li>
+                                </ul>
+                                <p>What would you like to learn today?</p>
+                            </div>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Questions:</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn" onclick="sendQuickMessage('What is HTML?')">
+                            <span>📝</span>
+                            <span>What is HTML?</span>
+                        </button>
+                        <button class="action-btn" onclick="sendQuickMessage('How do I center a div?')">
+                            <span>🎨</span>
+                            <span>How do I center a div?</span>
+                        </button>
+                        <button class="action-btn" onclick="sendQuickMessage('Explain JavaScript variables')">
+                            <span>⚡</span>
+                            <span>JavaScript variables</span>
+                        </button>
+                        <button class="action-btn" onclick="sendQuickMessage('CSS Grid vs Flexbox')">
+                            <span>📐</span>
+                            <span>Grid vs Flexbox</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea 
+                            id="chatInput" 
+                            class="chat-input" 
+                            placeholder="Type your question here..."
+                            rows="1"
+                            onkeydown="handleKeyDown(event)"
+                        ></textarea>
+                        <button class="send-button" onclick="sendMessage()" id="sendButton">
+                            <span>➤</span>
+                        </button>
+                    </div>
+                    <div class="input-hint">
+                        Press <kbd>Enter</kbd> to send, <kbd>Shift + Enter</kbd> for new line
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Auto-resize textarea
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatMessages = document.getElementById('chatMessages');
+
+        chatInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+            
+            // Enable/disable send button
+            sendButton.disabled = this.value.trim() === '';
+        });
+
+        function handleKeyDown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            
+            // Clear input
+            chatInput.value = '';
+            chatInput.style.height = 'auto';
+            sendButton.disabled = true;
+
+            // Simulate bot response
+            setTimeout(() => {
+                simulateBotResponse(message);
+            }, 1000);
+        }
+
+        function sendQuickMessage(message) {
+            chatInput.value = message;
+            sendMessage();
+        }
+
+        function addMessage(content, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}-message`;
+            
+            const avatar = type === 'user' ? '👤' : '🤖';
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <p>${content}</p>
+                    </div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function simulateBotResponse(userMessage) {
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Remove typing indicator and add response after delay
+            setTimeout(() => {
+                chatMessages.removeChild(typingDiv);
+                
+                let response = "I understand you're asking about web development. ";
+                
+                if (userMessage.toLowerCase().includes('html')) {
+                    response = "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using elements like headings, paragraphs, links, and more. Each element is defined by tags like &lt;h1&gt;, &lt;p&gt;, &lt;a&gt;, etc.";
+                } else if (userMessage.toLowerCase().includes('center') && userMessage.toLowerCase().includes('div')) {
+                    response = "There are several ways to center a div in CSS:<br><br>1. <strong>Flexbox:</strong> <code>display: flex; justify-content: center; align-items: center;</code><br>2. <strong>Grid:</strong> <code>display: grid; place-items: center;</code><br>3. <strong>Margin auto:</strong> <code>margin: 0 auto;</code> (for horizontal centering)<br><br>Flexbox is usually the most flexible solution!";
+                } else if (userMessage.toLowerCase().includes('javascript') && userMessage.toLowerCase().includes('variable')) {
+                    response = "JavaScript variables are containers for storing data values. You can declare them using:<br><br>• <code>let</code> - for variables that can change<br>• <code>const</code> - for constants that won't change<br>• <code>var</code> - older way (avoid in modern JS)<br><br>Example: <code>let name = 'John';</code> or <code>const age = 25;</code>";
+                } else if (userMessage.toLowerCase().includes('grid') || userMessage.toLowerCase().includes('flexbox')) {
+                    response = "<strong>CSS Grid vs Flexbox:</strong><br><br>• <strong>Flexbox:</strong> Best for 1-dimensional layouts (rows OR columns). Great for components, navigation bars, centering items.<br><br>• <strong>Grid:</strong> Best for 2-dimensional layouts (rows AND columns). Perfect for page layouts, complex designs.<br><br>Use Flexbox for components, Grid for layouts!";
+                } else {
+                    response += "Could you be more specific about what you'd like to learn? I can help with HTML structure, CSS styling, JavaScript programming, debugging tips, and much more!";
+                }
+                
+                const botMessageDiv = document.createElement('div');
+                botMessageDiv.className = 'message bot-message';
+                botMessageDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p>${response}</p>
+                        </div>
+                        <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                    </div>
+                `;
+                
+                chatMessages.appendChild(botMessageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 2000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            sendButton.disabled = true;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
+    </script>
+</body>
+</html>
