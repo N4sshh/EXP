@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeStarter - AI Chatbot</title>
     <link rel="stylesheet" href="chatbot-styles.css">
+    <!-- Load OpenAI SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/openai@4.0.0/browser/openai.min.js"></script>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Your existing HTML structure remains the same -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -29,31 +30,27 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <!-- Chat Header -->
             <div class="chat-header">
                 <h1 class="chat-title">AI Coding Tutor 🤖</h1>
                 <p class="chat-subtitle">Ask me anything about web development, HTML, CSS, JavaScript, and more!</p>
             </div>
 
-            <!-- Chat Container -->
             <div class="chat-container">
-                <!-- Chat Messages -->
                 <div class="chat-messages" id="chatMessages">
                     <!-- Welcome Message -->
                     <div class="message bot-message">
                         <div class="message-avatar">🤖</div>
                         <div class="message-content">
                             <div class="message-bubble">
-                                <p>Hello! I'm your AI coding tutor. I'm here to help you learn web development. You can ask me questions about:</p>
+                                <p>Hello! I'm your AI coding tutor powered by OpenAI. I can help with:</p>
                                 <ul>
                                     <li>HTML structure and elements</li>
                                     <li>CSS styling and layouts</li>
                                     <li>JavaScript programming</li>
-                                    <li>Best practices and debugging</li>
-                                    <li>Project ideas and guidance</li>
+                                    <li>Debugging code issues</li>
+                                    <li>Explaining programming concepts</li>
                                 </ul>
                                 <p>What would you like to learn today?</p>
                             </div>
@@ -66,19 +63,19 @@
                 <div class="quick-actions">
                     <h3>Quick Questions:</h3>
                     <div class="action-buttons">
-                        <button class="action-btn" onclick="sendQuickMessage('What is HTML?')">
+                        <button class="action-btn" onclick="sendQuickMessage('Explain HTML5 semantic elements')">
                             <span>📝</span>
-                            <span>What is HTML?</span>
+                            <span>HTML5 Semantics</span>
                         </button>
-                        <button class="action-btn" onclick="sendQuickMessage('How do I center a div?')">
+                        <button class="action-btn" onclick="sendQuickMessage('How do I center a div with CSS?')">
                             <span>🎨</span>
-                            <span>How do I center a div?</span>
+                            <span>Center a Div</span>
                         </button>
-                        <button class="action-btn" onclick="sendQuickMessage('Explain JavaScript variables')">
+                        <button class="action-btn" onclick="sendQuickMessage('Explain let vs const in JavaScript')">
                             <span>⚡</span>
-                            <span>JavaScript variables</span>
+                            <span>let vs const</span>
                         </button>
-                        <button class="action-btn" onclick="sendQuickMessage('CSS Grid vs Flexbox')">
+                        <button class="action-btn" onclick="sendQuickMessage('What is the difference between CSS Grid and Flexbox?')">
                             <span>📐</span>
                             <span>Grid vs Flexbox</span>
                         </button>
@@ -91,7 +88,7 @@
                         <textarea 
                             id="chatInput" 
                             class="chat-input" 
-                            placeholder="Type your question here..."
+                            placeholder="Type your coding question here..."
                             rows="1"
                             onkeydown="handleKeyDown(event)"
                         ></textarea>
@@ -108,16 +105,21 @@
     </main>
 
     <script>
-        // Auto-resize textarea
+        // Initialize OpenAI client
+        const openai = new OpenAI({
+            apiKey: 'sk-your-new-api-key-here', // REPLACE WITH YOUR NEW KEY
+            dangerouslyAllowBrowser: true // ONLY for development/testing!
+        });
+
+        // DOM elements
         const chatInput = document.getElementById('chatInput');
         const sendButton = document.getElementById('sendButton');
         const chatMessages = document.getElementById('chatMessages');
 
+        // Auto-resize textarea
         chatInput.addEventListener('input', function() {
             this.style.height = 'auto';
             this.style.height = Math.min(this.scrollHeight, 120) + 'px';
-            
-            // Enable/disable send button
             sendButton.disabled = this.value.trim() === '';
         });
 
@@ -128,7 +130,7 @@
             }
         }
 
-        function sendMessage() {
+        async function sendMessage() {
             const message = chatInput.value.trim();
             if (!message) return;
 
@@ -140,10 +142,8 @@
             chatInput.style.height = 'auto';
             sendButton.disabled = true;
 
-            // Simulate bot response
-            setTimeout(() => {
-                simulateBotResponse(message);
-            }, 1000);
+            // Generate AI response
+            await generateAIResponse(message);
         }
 
         function sendQuickMessage(message) {
@@ -158,12 +158,16 @@
             const avatar = type === 'user' ? '👤' : '🤖';
             const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
             
+            // Format code blocks and lists
+            const formattedContent = content
+                .replace(/```(\w*)([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\n/g, '<br>');
+            
             messageDiv.innerHTML = `
                 <div class="message-avatar">${avatar}</div>
                 <div class="message-content">
-                    <div class="message-bubble">
-                        <p>${content}</p>
-                    </div>
+                    <div class="message-bubble">${formattedContent}</div>
                     <div class="message-time">${time}</div>
                 </div>
             `;
@@ -172,8 +176,7 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function simulateBotResponse(userMessage) {
-            // Show typing indicator
+        function showTypingIndicator() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'message bot-message typing';
             typingDiv.innerHTML = `
@@ -190,40 +193,40 @@
             `;
             chatMessages.appendChild(typingDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+            return typingDiv;
+        }
 
-            // Remove typing indicator and add response after delay
-            setTimeout(() => {
+        async function generateAIResponse(userMessage) {
+            const typingDiv = showTypingIndicator();
+            
+            try {
+                const response = await openai.chat.completions.create({
+                    model: "gpt-3.5-turbo", // or "gpt-4" if available
+                    messages: [
+                        {
+                            role: "system",
+                            content: "You are a helpful coding tutor specializing in web development. " +
+                                     "Provide clear, concise explanations with code examples when appropriate. " +
+                                     "Format code snippets with markdown code blocks. " +
+                                     "Keep responses focused on programming topics (HTML, CSS, JavaScript)."
+                        },
+                        {
+                            role: "user",
+                            content: userMessage
+                        }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 500
+                });
+                
                 chatMessages.removeChild(typingDiv);
-                
-                let response = "I understand you're asking about web development. ";
-                
-                if (userMessage.toLowerCase().includes('html')) {
-                    response = "HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using elements like headings, paragraphs, links, and more. Each element is defined by tags like &lt;h1&gt;, &lt;p&gt;, &lt;a&gt;, etc.";
-                } else if (userMessage.toLowerCase().includes('center') && userMessage.toLowerCase().includes('div')) {
-                    response = "There are several ways to center a div in CSS:<br><br>1. <strong>Flexbox:</strong> <code>display: flex; justify-content: center; align-items: center;</code><br>2. <strong>Grid:</strong> <code>display: grid; place-items: center;</code><br>3. <strong>Margin auto:</strong> <code>margin: 0 auto;</code> (for horizontal centering)<br><br>Flexbox is usually the most flexible solution!";
-                } else if (userMessage.toLowerCase().includes('javascript') && userMessage.toLowerCase().includes('variable')) {
-                    response = "JavaScript variables are containers for storing data values. You can declare them using:<br><br>• <code>let</code> - for variables that can change<br>• <code>const</code> - for constants that won't change<br>• <code>var</code> - older way (avoid in modern JS)<br><br>Example: <code>let name = 'John';</code> or <code>const age = 25;</code>";
-                } else if (userMessage.toLowerCase().includes('grid') || userMessage.toLowerCase().includes('flexbox')) {
-                    response = "<strong>CSS Grid vs Flexbox:</strong><br><br>• <strong>Flexbox:</strong> Best for 1-dimensional layouts (rows OR columns). Great for components, navigation bars, centering items.<br><br>• <strong>Grid:</strong> Best for 2-dimensional layouts (rows AND columns). Perfect for page layouts, complex designs.<br><br>Use Flexbox for components, Grid for layouts!";
-                } else {
-                    response += "Could you be more specific about what you'd like to learn? I can help with HTML structure, CSS styling, JavaScript programming, debugging tips, and much more!";
-                }
-                
-                const botMessageDiv = document.createElement('div');
-                botMessageDiv.className = 'message bot-message';
-                botMessageDiv.innerHTML = `
-                    <div class="message-avatar">🤖</div>
-                    <div class="message-content">
-                        <div class="message-bubble">
-                            <p>${response}</p>
-                        </div>
-                        <div class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-                    </div>
-                `;
-                
-                chatMessages.appendChild(botMessageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 2000);
+                const botResponse = response.choices[0].message.content;
+                addMessage(botResponse, 'bot');
+            } catch (error) {
+                console.error("Error:", error);
+                chatMessages.removeChild(typingDiv);
+                addMessage("Sorry, I'm having trouble connecting to the AI service. Please try again later.", 'bot');
+            }
         }
 
         // Initialize
