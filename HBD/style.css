@@ -23,7 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: hsl(180, 30%, calc(var(--lightness, 50) * 1%));
+  background: url('https://n4sshh.github.io/EXP/HBD/us.jpg') center/cover no-repeat;
 }
 .whitespace {
   width: 7px;
