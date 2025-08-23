@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athena's Special People</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: silver;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 75%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: royalblue;
+            color: white;
+            box-sizing: border-box;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            background-color: white;
+            padding: 20px;
+            color: black;
+            border-radius: 10px;
+        }
+
+        .hautea-header {
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .hautea-header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        #nav {
+            margin-top: 10px;
+        }
+
+        #nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.4s ease;
+        }
+
+        #nav a:hover {
+            color: rgb(0, 229, 255);
+        }
+
+        .hautea-main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hautea-img {
+            width: 380px;
+            height: 380px;
+            border-radius: 25%;
+            margin: 25px 75px 10px 50px;
+            object-fit: cover;
+        }
+
+        .hautea-footer {
+            background-color: #1e130c;
+            text-align: center;
+            padding: 10px;
+            color: white;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .active-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="hautea-header">
+            <h1>Athena's Special People</h1>
+            <div id="nav">
+                <a href="#" onclick="showContent('family')">Family</a>
+                <a href="#" onclick="showContent('bff')">BFF</a>
+                <a href="#" onclick="showContent('bf')">Special Someone</a>
+                <a href="#" onclick="showContent('grandmother')">Grandmother</a>
+                <a href="#" onclick="showContent('shs')">SHS Bestie</a>
+            </div>
+        </header>
+
+        <div class="wrapper">
+            <!-- Family Content -->
+            <main id="family" class="content-section active-content">
+                <img src="https://n4sshh.github.io/EXP/athena%20with%20fam.jpg" alt="Athena and Family" class="hautea-img">
+                <img src="https://n4sshh.github.io/EXP/athena%20with%20fam%202.jpg" alt="Athena and Family" class="hautea-img">
+                <h1>My family is my source of happiness and strength. They support me through everything and bring joy to my life every day.</h1>
+            </main>
+
+            <!-- BFF Content -->
+            <main id="bff" class="content-section">
+                <img src="https://n4sshh.github.io/EXP/Athena%20bff.jpg" alt="Athena and BFF" class="hautea-img">
+                <img src="https://n4sshh.github.io/EXP/Athena%20bff2.jpg" alt="Athena and BFF" class="hautea-img">
+                <h1>So here's my besties since grade 7 until now I was so lucky one call away friend. Syempre if may problema ko sila gd ya nadalagan ko huhu, tanan² nga gakalatabo skun bal an nyo ❤️ sa hibi, kadlaw, updanay Taya huhu syempre pati sa shat eme, thank you for being a good friend Nicole and kling bsan ano ka sunggodanay same japun vibes Taya ah here lng ko always para sinyo I got your back 💓</h1>
+            </main>
+
+            <!-- Special Someone Content -->
+            <main id="bf" class="content-section">
+                <img src="https://n4sshh.github.io/EXP/Athena%20bf.jpg" alt="Athena and BF" class="hautea-img">
+                <img src="https://n4sshh.github.io/EXP/Athena%20bf2.jpg" alt="Athena and BF" class="hautea-img">
+                <h1>Thank you for being my support system mine ey💗 I was so thankful to have you i found bf, bff at the same time no one can replace you in my heart, thank you sa pag hambl skun permi kaya muna ❤️ Ari lng kodi always huhu bal an mo gd storya sang life ko how unfair it was, pero happy ko japun mine ah pasalamat ko sa tanan nga gakalatabo even though budlay pero bangon japun ah 💋</h1>
+            </main>
+
+            <!-- Grandmother Content -->
+            <main id="grandmother" class="content-section">
+                <img src="https://n4sshh.github.io/EXP/Athena%20lola.jpg" alt="Athena and Lola" class="hautea-img">
+                <img src="https://n4sshh.github.io/EXP/Athena%20lola2.jpg" alt="Athena and Lola" class="hautea-img">
+                <h1>Hi nanay ❤️ your apo's is still fighting as we promise nay may graduate gd kmi 🥺 your my biggest heartbreak nag kabudlay2 sang nadula kw smun, I feel empty without you nay as in wla nga adlaw wla ka namun napanumdom nay but I'm happy kay your in a right place nay ❤️ I will continue and make you proud</h1>
+            </main>
+
+            <!-- SHS Bestie Content -->
+            <main id="shs" class="content-section">
+                <img src="https://n4sshh.github.io/EXP/Athena%20sis.jpg" alt="Athena and SHS Bestie" class="hautea-img">
+                <img src="https://n4sshh.github.io/EXP/Athena%20sis2.jpg" alt="Athena and SHS Bestie" class="hautea-img">
+                <h1>My SHS bestie has been with me through the challenges of senior high. We've shared so many memories and I'm grateful for our friendship that continues to grow stronger.</h1>
+            </main>
+        </div>
+
+        <footer class="hautea-footer">
+            <h2>Made by Athena Greece Hautea From BTVTED CP 3-A</h2>
+        </footer>
+    </div>
+
+    <script>
+        // Function to show the selected content and hide others
+        function showContent(sectionId) {
+            // Hide all content sections
+            var sections = document.getElementsByClassName('content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active-content');
+            }
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active-content');
+            
+            // Prevent default link behavior
+            return false;
+        }
+    </script>
+</body>
+</html>
