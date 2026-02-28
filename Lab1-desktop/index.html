@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Digital Overhead · Bootstrap v5.3</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/cover/"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="css/cover.css" rel="stylesheet" />
+    <style>
+      /* ONLY CUSTOM CSS FOR THINGS BOOTSTRAP CAN'T DO */
+      
+      /* Override cover.css text shadow */
+      body {
+        text-shadow: none !important;
+      }
+
+      /* Apply text shadow ONLY to cover section */
+      .cover-container {
+        text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
+      }
+
+      /* Video background - Bootstrap has no video component */
+      #bg-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -2;
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        #bg-video {
+          display: block;
+          opacity: 0.7;
+        }
+        .video-overlay {
+          background: linear-gradient(135deg, #1a1e24 0%, #2c3e50 100%);
+          opacity: 0.85;
+        }
+      }
+
+      .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+        z-index: -1;
+      }
+
+      /* Card hover effect - customizing Bootstrap card */
+      .card {
+        transition: transform 0.3s;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Button customizations */
+      .cta-section .btn-primary {
+        background-color: white;
+        border-color: white;
+        color: #000000 !important;
+        font-weight: bold;
+      }
+
+      .about-section .btn-primary {
+        background-color: white !important;
+        border: 2px solid #0d6efd !important;
+        color: #0d6efd !important;
+        font-weight: bold;
+      }
+
+      .about-section .btn-primary:hover {
+        background-color: #0d6efd !important;
+        color: white !important;
+      }
+
+      .cover-container .btn-primary {
+        background-color: #0d6efd !important;
+        border-color: #0d6efd !important;
+        color: white !important;
+        font-weight: bold;
+      }
+
+      .cover-container .btn-outline-light {
+        background-color: transparent !important;
+        color: white !important;
+        font-weight: bold;
+        border-width: 2px;
+      }
+
+      /* Mobile header adjustments */
+      @media (max-width: 767px) {
+        .mobile-header {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- VIDEO BACKGROUND (custom - Bootstrap doesn't have video component) -->
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="images/meow.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="content-wrapper">
+      
+      <!-- ========== HEADER - BLACK BACKGROUND ========== -->
+      <!-- ALL HEADER TEXT IS WHITE -->
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid px-4">
+          <!-- Brand on left - WHITE -->
+          <span class="navbar-brand fs-3 fw-medium text-white">Digital Overhead</span>
+          
+          <!-- Desktop Navigation - WHITE (with opacity for inactive) -->
+          <div class="d-none d-md-flex gap-4">
+            <a class="nav-link text-white active" href="#">Home</a>
+            <a class="nav-link text-white-50" href="#">Services</a>
+            <a class="nav-link text-white-50" href="#">About</a>
+            <a class="nav-link text-white-50" href="#">Contact</a>
+          </div>
+          
+          <!-- Mobile Hamburger -->
+          <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar" 
+                  aria-controls="mobileNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- Mobile Collapsible Menu - WHITE text -->
+          <div class="collapse navbar-collapse d-md-none" id="mobileNavbar">
+            <ul class="navbar-nav text-center mt-3">
+              <li class="nav-item"><a class="nav-link active text-white fs-4 py-3" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link text-white fs-4 py-3" href="#">Services</a></li>
+              <li class="nav-item"><a class="nav-link text-white fs-4 py-3" href="#">About</a></li>
+              <li class="nav-item"><a class="nav-link text-white fs-4 py-3" href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ========== HERO SECTION ========== -->
+      <!-- ALL HERO TEXT IS WHITE -->
+      <div class="cover-container w-100 mx-auto d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 100vh; max-width: 65em; padding: 2rem; margin-top: 60px;">
+        
+        <!-- Hero Content - ALL WHITE -->
+        <main class="text-center">
+          <h1 class="text-white fw-bold display-4 mb-4">Empowering Your Digital Future</h1>
+          <p class="text-white lead mb-4" style="white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; font-size: 1.4rem;">
+            We build modern websites and applications that help businesses grow and succeed.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-primary btn-lg px-4 py-3">Learn more</a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 py-3">Get Started</a>
+          </div>
+        </main>
+      </div>
+
+      <!-- ========== SERVICES SECTION ========== -->
+      <!-- ALL TEXT IS REGULAR BLACK (not bold) -->
+      <section class="py-5" style="background-color: #f8f9fa;">
+        <div class="container">
+          <h2 class="text-center fw-bold mb-5 display-5">Our Services</h2>
+          
+          <div class="row g-4">
+            <!-- Web Development -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4 p-lg-5">
+                  <h5 class="card-title fw-bold fs-3 mb-3">Web Development</h5>
+                  <!-- Regular black text (no fw-bold, just default) -->
+                  <p class="card-text mb-4 fs-5" style="color: #212529;">Responsive, scalable, and high-performance websites tailored to your business needs.</p>
+                  <a href="#" class="btn btn-primary px-4">Read More</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Mobile Applications -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4 p-lg-5">
+                  <h5 class="card-title fw-bold fs-3 mb-3">Mobile Applications</h5>
+                  <!-- Regular black text -->
+                  <p class="card-text mb-4 fs-5" style="color: #212529;">Cross-platform mobile apps designed for performance and user engagement.</p>
+                  <a href="#" class="btn btn-primary px-4">Read More</a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- UI/UX Design -->
+            <div class="col-lg-4 col-md-6">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center p-4 p-lg-5">
+                  <h5 class="card-title fw-bold fs-3 mb-3">UI/UX Design</h5>
+                  <!-- Regular black text -->
+                  <p class="card-text mb-4 fs-5" style="color: #212529;">User-centered designs that deliver intuitive and engaging digital experiences.</p>
+                  <a href="#" class="btn btn-primary px-4">Read More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT SECTION ========== -->
+      <!-- ALL TEXT IS REGULAR BLACK (not bold) EXCEPT HEADING -->
+      <section class="about-section py-5 bg-white">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-6 text-center">
+              <img
+                src="images/template.jpg"
+                class="img-fluid rounded-4 shadow-lg"
+                alt="About Digital Overhead"
+              />
+            </div>
+            <div class="col-12 col-lg-6">
+              <h2 class="fw-bold mb-4 display-5">About Digital Overhead</h2>
+              <!-- Regular black text -->
+              <p class="fs-4 mb-4 lh-base" style="color: #212529;">
+                Digital Overhead Digital Solutions is dedicated to delivering innovative digital solutions. Our team combines creativity and technical expertise to help businesses establish a strong online presence and achieve sustainable growth.
+              </p>
+              <a href="#" class="btn btn-primary btn-lg px-5 py-3">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CTA SECTION ========== -->
+      <!-- CTA text is white (on blue background) -->
+      <section class="cta-section py-5 bg-primary text-white text-center">
+        <div class="container py-4">
+          <h2 class="fw-bold mb-4 display-5 text-white">Ready to Start Your Project?</h2>
+          <p class="fs-3 mb-5 opacity-90 text-white">Let's work together to bring your ideas to life.</p>
+          <a href="#" class="btn btn-primary btn-lg px-5 py-3 fs-4">Contact Us Today</a>
+        </div>
+      </section>
+
+      <!-- ========== FOOTER ========== -->
+      <!-- Footer text is white (on dark background) -->
+      <footer class="py-5 bg-dark text-white text-center">
+        <div class="container">
+          <p class="mb-2 fs-4 text-white">© 2026 Digital Overhead Solutions</p>
+          <p class="mb-0 small opacity-75 fs-5 text-white-50">All Rights Reserved</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Media queries for responsive adjustments -->
+    <style>
+      @media (max-width: 992px) {
+        .cover-container .lead {
+          white-space: normal !important;
+          font-size: 1.2rem !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .cover-container {
+          padding: 1rem !important;
+        }
+        .cover-container h1 {
+          font-size: 1.8rem;
+        }
+      }
+      
+      @media (max-width: 991px) {
+        .about-section .row {
+          flex-direction: column;
+        }
+        .about-section img {
+          margin: 0 auto 2rem;
+          max-width: 90%;
+        }
+      }
+    </style>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
