@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+  <meta name="description" content="BLACKPINK fan page – built with Bootstrap components" />
+  <title>BLACKPINK · Digital Overhead</title>
+  <!-- Bootstrap 5.3 core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .text-pink {
+      color: #f65e8f !important;
+    }
+    .bg-pink {
+      background-color: #f65e8f !important;
+    }
+    .btn-pink {
+      background-color: #f65e8f;
+      border-color: #f65e8f;
+      color: #000;
+      font-weight: 600;
+    }
+    .btn-pink:hover {
+      background-color: #d43f75;
+      border-color: #d43f75;
+      color: #000;
+    }
+    .btn-outline-pink {
+      border: 2px solid #f65e8f;
+      color: #f65e8f;
+      background: transparent;
+    }
+    .btn-outline-pink:hover {
+      background: #f65e8f;
+      color: #000;
+    }
+    /* Header positioning */
+    @media (min-width: 768px) {
+      .navbar-brand {
+        margin-left: 25% !important;
+      }
+      .navbar-nav {
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(-12.5%);
+      }
+    }
+    /* Card hover effect */
+    .card {
+      transition: transform 0.2s ease;
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      backdrop-filter: blur(5px);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 1rem 2rem rgba(246, 94, 143, 0.3) !important;
+    }
+    /* Full screen sections */
+    .full-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 0;
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      backdrop-filter: blur(3px);
+      position: relative;
+      z-index: 5;
+    }
+    /* Badge custom style */
+    .badge-pink {
+      background-color: #f65e8f;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+    /* Member images */
+    .member-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border: 3px solid #f65e8f;
+      box-shadow: 0 0 20px rgba(246, 94, 143, 0.3);
+      border-radius: 50%;
+    }
+    /* CAROUSEL - completely redesigned for mobile */
+    #bgCarousel {
+      z-index: 1;
+    }
+    #bgCarousel .carousel-inner,
+    #bgCarousel .carousel-item {
+      height: 100vh;
+    }
+    #bgCarousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+    
+    /* FIXED MOBILE STYLES - Shows full images */
+    @media (max-width: 768px) {
+      /* Show full images without cutting */
+      #bgCarousel .carousel-item img {
+        object-fit: contain !important; /* This shows the ENTIRE image */
+        background-color: #000;
+      }
+      
+      .display-1 {
+        font-size: 3.5rem !important;
+      }
+      .lead.fs-2 {
+        font-size: 1.3rem !important;
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      backdrop-filter: blur(5px);
+      z-index: 10;
+    }
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+      backdrop-filter: blur(5px);
+      position: relative;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- CAROUSEL - with mobile fix -->
+  <div id="bgCarousel" class="carousel slide carousel-fade position-fixed top-0 start-0 w-100 h-100" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner h-100">
+      <div class="carousel-item active h-100">
+        <img src="images/bp.jpg" class="d-block w-100 h-100" alt="BLACKPINK concert">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="images/bp2.jpg" class="d-block w-100 h-100" alt="BLACKPINK members">
+      </div>
+      <div class="carousel-item h-100">
+        <img src="images/bp3.jpg" class="d-block w-100 h-100" alt="BLACKPINK group">
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BOOTSTRAP NAVBAR ========= -->
+  <nav class="navbar navbar-dark fixed-top navbar-expand-md py-2" style="background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px);">
+    <div class="container-fluid px-4">
+      <!-- Brand -->
+      <span class="navbar-brand fs-1 fw-bold text-pink" style="letter-spacing: 1px;">BLΛƆKPIИK</span>
+      
+      <!-- Navigation links -->
+      <div class="collapse navbar-collapse" id="bpNavbar">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link text-white active fs-6" href="#home">HOME</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50 fs-6" href="#members">MEMBERS</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50 fs-6" href="#music">MUSIC</a></li>
+          <li class="nav-item"><a class="nav-link text-white-50 fs-6" href="#tour">TOUR</a></li>
+        </ul>
+      </div>
+
+      <!-- Mobile toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#bpNavbar" 
+              aria-controls="bpNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========= -->
+  <section id="home" class="full-screen" style="background-color: transparent !important; backdrop-filter: none; z-index: 5;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 text-center">
+          <h1 class="display-1 fw-bold mb-3 text-pink" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BLACKPINK</h1>
+          <p class="lead fs-2 mb-4 fw-light text-white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">The revolution of K-pop.</p>
+          <p class="lead fs-2 mb-4 fw-bold text-pink" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Jennie, Lisa, Jisoo, Rosé.</p>
+          <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="#" class="btn btn-pink px-4 py-2 fs-6">LISTEN NOW</a>
+            <a href="#" class="btn btn-outline-pink px-4 py-2 fs-6">WATCH M/V</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MEMBERS SECTION ========= -->
+  <section id="members" class="full-screen">
+    <div class="container-fluid px-4">
+      <h2 class="text-center fw-bold mb-5 display-2 text-pink" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">MEMBERS</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Jennie Card -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 text-white border-0 shadow-lg">
+            <div class="text-center p-3">
+              <img src="images/jennie.jpg" class="member-img" alt="Jennie">
+            </div>
+            <div class="card-body text-center p-4">
+              <h5 class="card-title fw-bold fs-3 text-pink">JENNIE</h5>
+              <p class="card-text fs-6 text-white-50 mb-2">Lead rapper, vocalist</p>
+              <p class="card-text small text-white-50 mb-3">"The Charismatic" · "Solo"</p>
+              <div class="d-flex justify-content-center gap-2 mb-3">
+                <span class="badge badge-pink">#Jennie</span>
+                <span class="badge badge-pink">#RubyJane</span>
+              </div>
+              <a href="#" class="btn btn-outline-pink btn-sm px-4">profile</a>
+            </div>
+          </div>
+        </div>
+        <!-- Lisa Card -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 text-white border-0 shadow-lg">
+            <div class="text-center p-3">
+              <img src="images/lisa.jpg" class="member-img" alt="Lisa">
+            </div>
+            <div class="card-body text-center p-4">
+              <h5 class="card-title fw-bold fs-3 text-pink">LISA</h5>
+              <p class="card-text fs-6 text-white-50 mb-2">Main dancer, rapper</p>
+              <p class="card-text small text-white-50 mb-3">"The Dancer" · "Lalisa"</p>
+              <div class="d-flex justify-content-center gap-2 mb-3">
+                <span class="badge badge-pink">#Lisa</span>
+                <span class="badge badge-pink">#Lalisa</span>
+              </div>
+              <a href="#" class="btn btn-outline-pink btn-sm px-4">profile</a>
+            </div>
+          </div>
+        </div>
+        <!-- Jisoo Card -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 text-white border-0 shadow-lg">
+            <div class="text-center p-3">
+              <img src="images/jisoo.jpg" class="member-img" alt="Jisoo">
+            </div>
+            <div class="card-body text-center p-4">
+              <h5 class="card-title fw-bold fs-3 text-pink">JISOO</h5>
+              <p class="card-text fs-6 text-white-50 mb-2">Lead vocalist, visual</p>
+              <p class="card-text small text-white-50 mb-3">"The Visual" · "Snowdrop"</p>
+              <div class="d-flex justify-content-center gap-2 mb-3">
+                <span class="badge badge-pink">#Jisoo</span>
+                <span class="badge badge-pink">#Flower</span>
+              </div>
+              <a href="#" class="btn btn-outline-pink btn-sm px-4">profile</a>
+            </div>
+          </div>
+        </div>
+        <!-- Rosé Card -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 text-white border-0 shadow-lg">
+            <div class="text-center p-3">
+              <img src="images/rose.jpg" class="member-img" alt="Rosé">
+            </div>
+            <div class="card-body text-center p-4">
+              <h5 class="card-title fw-bold fs-3 text-pink">ROSÉ</h5>
+              <p class="card-text fs-6 text-white-50 mb-2">Main vocalist, dancer</p>
+              <p class="card-text small text-white-50 mb-3">"The Voice" · "On The Ground"</p>
+              <div class="d-flex justify-content-center gap-2 mb-3">
+                <span class="badge badge-pink">#Rosé</span>
+                <span class="badge badge-pink">#NumberOneGirl</span>
+              </div>
+              <a href="#" class="btn btn-outline-pink btn-sm px-4">profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT BLACKPINK SECTION ========= -->
+  <section id="about" class="full-screen">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6 text-center">
+          <img src="images/bp4.jpg" class="img-fluid rounded-4 shadow-lg" alt="BLACKPINK group" style="border: 3px solid #f65e8f; max-height: 400px; width: 100%; object-fit: cover;">
+        </div>
+        <div class="col-12 col-lg-6">
+          <h2 class="fw-bold mb-4 display-4 text-pink">About BLACKPINK</h2>
+          <p class="fs-4 mb-4 lh-base text-white">
+            BLACKPINK is a South Korean girl group formed by YG Entertainment, consisting of Jisoo, Jennie, Rosé, and Lisa. Debuted in 2016 with "Square One". Global icons known for powerful performances.
+          </p>
+          <p class="fs-4 mb-5 fst-italic text-pink">"The prettiest color isn't just pink – it's BLACKPINK."</p>
+          <a href="#" class="btn btn-pink btn-lg px-5 py-3 fs-5">Full biography</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MUSIC + TOUR SECTION ========= -->
+  <section id="music-tour" class="full-screen">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <!-- Left: BORN PINK -->
+        <div class="col-lg-6 text-center text-lg-start">
+          <h2 class="display-4 fw-bold text-pink mb-3">BORN PINK</h2>
+          <p class="fs-3 text-white mb-3">The album that broke records. <br><span class="text-pink fw-bold">"Pink Venom"</span>, <span class="text-pink fw-bold">"Shut Down"</span></p>
+          <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+            <a href="#" class="btn btn-pink px-4 py-2 fs-5">STREAM NOW</a>
+            <a href="#" class="btn btn-outline-pink px-4 py-2 fs-5">OFFICIAL MV</a>
+          </div>
+        </div>
+        <!-- Right: WORLD TOUR -->
+        <div class="col-lg-6 text-center">
+          <div class="card text-white border-0 shadow-lg p-5">
+            <div class="card-body">
+              <h3 class="text-pink fs-1 fw-bold mb-3">WORLD TOUR 2025</h3>
+              <p class="fs-3 mb-4">Seoul · Tokyo · LA · Paris · London</p>
+              <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
+                <span class="badge badge-pink fs-5">FEB 15</span>
+                <span class="badge badge-pink fs-5">MAR 20</span>
+                <span class="badge badge-pink fs-5">APR 25</span>
+              </div>
+              <p class="fs-4 mb-4 text-white-50">Experience the energy live.</p>
+              <a href="#" class="btn btn-outline-pink btn-lg px-5 py-3 fs-5">GET TICKETS</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========= -->
+  <footer class="py-4 text-white-50 text-center mt-auto">
+    <div class="container">
+      <p class="mb-1 small">© 2026 BLΛƆKPIИK · FAN PAGE</p>
+      <p class="mb-0 small">For the love of BLACKPINK · All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
