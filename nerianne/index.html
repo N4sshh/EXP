@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" />
+  <meta name="description" content="24/7 Online Convenience Store - Food, School Supplies, Farm Products, and More" />
+  <meta name="author" content="24seven Prime Market" />
+  <title>24seven Prime Market · 24/7 Online Convenience Store</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    /* ONLY CUSTOM CSS FOR THINGS BOOTSTRAP CAN'T DO */
+    
+    body {
+      text-shadow: none !important;
+      background: linear-gradient(135deg, #3498db, #2c3e50);
+    }
+
+    .cover-container {
+      text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5) !important;
+    }
+
+    /* Card hover effect */
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .section-padding {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Header positioning - BLACKPINK style */
+    @media (min-width: 768px) {
+      .navbar-brand-offset {
+        margin-left: 25% !important;
+      }
+      .navbar-nav-offset {
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(-12.5%);
+      }
+    }
+
+    .navbar-custom {
+      background-color: rgba(44, 62, 80, 0.95) !important;
+      backdrop-filter: blur(5px);
+      z-index: 10;
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+
+    .navbar-brand-custom {
+      font-size: 1.8rem !important;
+      letter-spacing: 1px;
+      color: white !important;
+    }
+
+    .navbar-custom .nav-link {
+      color: white !important;
+      font-size: 1rem !important;
+      padding: 0.5rem 0 !important;
+    }
+    
+    .navbar-custom .nav-link.active {
+      color: #f39c12 !important;
+      font-weight: 600;
+    }
+    
+    .navbar-custom .nav-link:hover {
+      color: rgba(255,255,255,0.8) !important;
+    }
+
+    .navbar-custom .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Category badges */
+    .badge-custom {
+      background-color: #f39c12;
+      color: #2c3e50;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .badge-custom:hover {
+      background-color: #2c3e50;
+      color: #f39c12;
+      transform: scale(1.05);
+    }
+
+    /* PDF REQUIRED: Hero background with overlay */
+    #hero {
+      background: url('images/store-bg.jpg') center/cover no-repeat;
+      min-height: 400px;
+      position: relative;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 62, 80, 0.7);
+    }
+
+    /* PDF REQUIRED: CTA background color */
+    #cta {
+      background-color: #1a6ef5;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    
+    <!-- ========== NAVBAR ========= -->
+    <nav class="navbar navbar-dark navbar-custom fixed-top navbar-expand-md py-1">
+      <div class="container-fluid px-4">
+        <span class="navbar-brand navbar-brand-offset navbar-brand-custom fw-bold">
+          <i class="bi bi-shop"></i> 24seven Prime
+        </span>
+
+        <div class="collapse navbar-collapse" id="marketNavbar">
+          <ul class="navbar-nav navbar-nav-offset gap-4">
+            <li class="nav-item"><a class="nav-link active" href="#">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">CATEGORIES</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
+          </ul>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#marketNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========= -->
+    <div id="hero" class="w-100 mx-auto d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 100vh; padding: 2rem; margin-top: 60px;">
+      <div class="position-relative text-white">
+        <h1 class="fw-bold display-4 mb-4">24/7 Online Convenience Store</h1>
+        <p class="lead mb-4" style="font-size: 1.4rem;">
+          Food · School · Farm · Snacks · More
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="#" class="btn btn-primary btn-lg px-4 py-3">Shop Now</a>
+          <a href="#" class="btn btn-outline-light btn-lg px-4 py-3">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CATEGORIES SECTION ========= -->
+    <section class="section-padding" style="background-color: #f8f9fa;">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5 display-5" style="color: #2c3e50;">Shop by Category</h2>
+        
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <span class="badge badge-custom"><i class="bi bi-tree"></i> Farm Supplies</span>
+          <span class="badge badge-custom"><i class="bi bi-can"></i> Canned Foods</span>
+          <span class="badge badge-custom"><i class="bi bi-cup-straw"></i> Noodles</span>
+          <span class="badge badge-custom"><i class="bi bi-pencil"></i> School Supplies</span>
+          <span class="badge badge-custom"><i class="bi bi-cookie"></i> Snacks</span>
+          <span class="badge badge-custom"><i class="bi bi-grid"></i> Others</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES SECTION ========= -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5 display-5" style="color: #2c3e50;">Featured Products</h2>
+        
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">Canned Food</span>
+                <h5 class="card-title fw-bold fs-3 mb-3">Sardines</h5>
+                <p class="fs-2 fw-bold text-primary mb-3">₱25</p>
+                <button class="btn btn-warning w-100 py-2 fw-bold">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">Noodles</span>
+                <h5 class="card-title fw-bold fs-3 mb-3">Instant Noodles</h5>
+                <p class="fs-2 fw-bold text-primary mb-3">₱18</p>
+                <button class="btn btn-warning w-100 py-2 fw-bold">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center p-4">
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">School Supply</span>
+                <h5 class="card-title fw-bold fs-3 mb-3">Notebook</h5>
+                <p class="fs-2 fw-bold text-primary mb-3">₱45</p>
+                <button class="btn btn-warning w-100 py-2 fw-bold">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========= -->
+    <section class="about-section section-padding bg-light">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-6 text-center">
+            <div class="p-5 rounded-4" style="background: linear-gradient(135deg, #f39c12, #3498db);">
+              <i class="bi bi-shop display-1 text-white"></i>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h2 class="fw-bold mb-4 display-5" style="color: #2c3e50;">About 24seven Prime</h2>
+            <p class="fs-4 mb-4 lh-base text-secondary">
+              Your 24/7 online convenience store. We bring the market to your doorstep anytime, day or night.
+            </p>
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="bg-white p-3 rounded-3 text-center">
+                  <i class="bi bi-clock fs-1 text-primary"></i>
+                  <h5>24/7 Service</h5>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="bg-white p-3 rounded-3 text-center">
+                  <i class="bi bi-truck fs-1 text-primary"></i>
+                  <h5>Fast Delivery</h5>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline-primary btn-lg px-5 py-3">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA BANNER ========= -->
+    <section id="cta" class="py-5 text-white text-center">
+      <div class="container py-4">
+        <h2 class="fw-bold mb-4 display-5">Get Exclusive Deals!</h2>
+        <p class="fs-3 mb-5">Subscribe for daily offers and promotions</p>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="input-group input-group-lg">
+              <input type="email" class="form-control" placeholder="Your email address">
+              <button class="btn btn-dark btn-lg px-5" type="button">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p class="mb-2 fs-4">© 2026 24seven Prime Market</p>
+        <p class="mb-0 small text-white-50">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
